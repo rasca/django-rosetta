@@ -365,11 +365,8 @@ def can_translate(user):
         return False
     elif user.is_superuser and user.is_staff:
         return True
+    elif user.has_perm('actors.can_translate'):
+        return True
     else:
-        try:
-            from django.contrib.auth.models import Group
-            translators = Group.objects.get(name='translators')
-            return translators in user.groups.all()
-        except Group.DoesNotExist:
-            return False
+        return False
 

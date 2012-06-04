@@ -69,8 +69,7 @@ Because Rosetta requires write access to some of the files in your Django projec
 
 If you wish to grant editing access to other users:
  
-1. Create a 'translators' group in your admin interface
-2. Add the user you wish to grant translating rights to this group
+Create an 'actors' app with a model with a 'can_translate' perm and add it to the user.
 
 *****
 Usage
